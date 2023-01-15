@@ -33,6 +33,11 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework:spring-webflux'
     testImplementation 'org.springframework.graphql:spring-graphql-test'
+    implementation 'org.springframework.data:spring-data-jpa:3.0.1'
+    implementation 'javax.persistence:javax.persistence-api:2.2'
+    implementation 'org.hibernate:hibernate-core:6.1.6.Final'
+
+
 }
 
 tasks.named('test') {
