@@ -43,10 +43,8 @@ public class ClientInfo extends DbEntity {
     private String phoneUUID;
 
 
-
-
-   /* @PrePersist
-    private void assignUIID(){
-        phoneUUID = UUID.randomUUID().toString();
-    }*/
+//    @PrePersist
+//    private void assignUIID(){
+//        phoneUUID = UUID.randomUUID().toString();
+//    }
 }
