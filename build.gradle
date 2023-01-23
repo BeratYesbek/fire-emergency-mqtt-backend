@@ -3,6 +3,8 @@ plugins {
     id 'org.springframework.boot' version '2.7.8-SNAPSHOT'
     id 'io.spring.dependency-management' version '1.0.15.RELEASE'
     id 'org.springframework.experimental.aot' version '0.12.2'
+    id 'org.flywaydb.flyway' version '9.12.0'
+
 }
 
 group = 'com.bm'
@@ -37,6 +39,9 @@ dependencies {
     implementation 'javax.persistence:javax.persistence-api:2.2'
     implementation 'org.hibernate:hibernate-core:6.1.6.Final'
 
+    implementation 'org.flywaydb:flyway-core:9.12.0'
+
+
 
 }
 
@@ -47,4 +52,9 @@ tasks.named('test') {
 tasks.named('bootBuildImage') {
     builder = 'paketobuildpacks/builder:tiny'
     environment = ['BP_NATIVE_IMAGE': 'true']
+}
+flyway {
+    url = 'jdbc:postgresql://localhost:5432/MqttDb'
+    user = 'postgres'
+    password = '123456'
 }

@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+
+
+  fire_emergency_app:
+    image: 'fire_emergency_app'
+    container_name: fire_emergency_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - fire_postgres
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://fire_postgres:5432/fireDb
+      - SPRING_DATASOURCE_USERNAME=user
+      - SPRING_DATASOURCE_PASSWORD=user123
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_JPA_HIBERNATE_DIALECT=org.hibernate.dialect.PostgreSQLDialect
+    ports:
+      - "8080:8080"
+      -
+  fire_postgres:
+    image: postgres
+    read_only: true
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=user123
+      - POSTGRES_DB=fireDb
+    ports:
+      - "5432:5432"
+    tmpfs:
+      - /tmp
+      - /run
+      - /run/postgresql
+    volumes:
+      - postgres-volume:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U user" ]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+    restart: on-failure
+    
+volumes:
+  postgres-volume:
+
