@@ -57,7 +57,7 @@ tasks.named('bootBuildImage') {
 }
 
 flyway {
-    url = 'jdbc:postgresql://localhost:5432/MqttDb'
-    user = 'postgres'
-    password = '123456'
+    url = 'jdbc:postgresql://localhost:54322/fireDb'
+    user = 'user'
+    password = 'user123'
 }
