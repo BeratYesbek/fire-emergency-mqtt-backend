@@ -4,6 +4,8 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.15.RELEASE'
     id 'org.springframework.experimental.aot' version '0.12.2'
     id 'org.flywaydb.flyway' version '9.12.0'
+    id "io.swagger.core.v3.swagger-gradle-plugin" version "2.2.8"
+
 
 }
 
@@ -45,6 +47,10 @@ dependencies {
     //security
     implementation 'com.auth0:java-jwt:4.2.0'
     implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    //swagger
+    implementation 'io.springfox:springfox-boot-starter:3.0.0'
+    implementation 'io.springfox:springfox-swagger2:3.0.0'
 }
 
 tasks.named('test') {

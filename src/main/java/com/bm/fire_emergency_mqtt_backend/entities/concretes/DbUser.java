@@ -3,9 +3,9 @@ package com.bm.fire_emergency_mqtt_backend.entities.concretes;
 import com.bm.fire_emergency_mqtt_backend.entities.abstracts.DbEntity;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import java.util.*;
+
+import javax.persistence.*;
 
 import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.HibernateTableConstants.USER_TABLE;
 import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.HibernateUserColumnConstants.*;
@@ -30,5 +30,6 @@ public class DbUser extends DbEntity {
     @Column(name = COL_PASSWORD, nullable = false)
     private String password;
 
-
+    @OneToMany(mappedBy = "dbUser", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<DbClientInfo> dbClientInfoList;
 }

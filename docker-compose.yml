@@ -35,8 +35,12 @@ services:
       - SPRING_DATASOURCE_PASSWORD=user123
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
       - SPRING_JPA_HIBERNATE_DIALECT=org.hibernate.dialect.PostgreSQLDialect
+      - SPRING_FLYWAY_URL=jdbc:postgresql://fire_postgres:54322/fireDb
+      - SPRING_FLYWAY_USER=user
+      - SPRING_FLYWAY_PASSWORD=user123
+      - SPRING_FLYWAY_BASELINE_ON_MIGRATE=true
     ports:
-      - "8080:8080"
+      - "8081:8080"
 
 
 volumes:
