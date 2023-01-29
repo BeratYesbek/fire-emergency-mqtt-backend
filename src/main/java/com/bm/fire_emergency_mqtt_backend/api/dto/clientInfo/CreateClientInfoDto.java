@@ -31,4 +31,8 @@ public class CreateClientInfoDto {
 
     @JsonProperty("phoneUUID")
     private String phoneUUID;
+
+    //TODO --> dbUser has to remove in the future
+    @JsonProperty("dbUser")
+    private DbUser dbUser;
 }

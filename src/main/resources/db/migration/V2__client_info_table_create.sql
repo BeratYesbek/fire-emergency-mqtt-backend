@@ -1,6 +1,6 @@
 CREATE TABLE client_info
 (
-    id               INTEGER      NOT NULL PRIMARY KEY,
+    id               SERIAL PRIMARY KEY NOT NULL,
     user_id          INTEGER REFERENCES users (id),
     latitude         DECIMAL      NOT NULL,
     longitude        DECIMAL      NOT NULL,

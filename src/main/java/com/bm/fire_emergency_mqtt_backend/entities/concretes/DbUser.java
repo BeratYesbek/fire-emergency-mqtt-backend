@@ -10,7 +10,7 @@ import javax.persistence.*;
 import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.HibernateTableConstants.USER_TABLE;
 import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.HibernateUserColumnConstants.*;
 
-@Data
+@Getter
 @Entity
 @Builder
 @NoArgsConstructor
@@ -30,6 +30,6 @@ public class DbUser extends DbEntity {
     @Column(name = COL_PASSWORD, nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "dbUser", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "dbUser", fetch = FetchType.LAZY)
     private List<DbClientInfo> dbClientInfoList;
 }

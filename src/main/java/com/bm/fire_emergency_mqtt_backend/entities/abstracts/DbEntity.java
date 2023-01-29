@@ -13,7 +13,6 @@ import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.Hibern
 @Getter
 @Setter
 @MappedSuperclass
-@ToString(of = {"id", "createdAt"})
 public abstract class DbEntity implements Serializable {
 
     @Id
