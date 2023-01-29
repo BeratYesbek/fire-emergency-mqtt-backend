@@ -7,5 +7,7 @@ public final class HibernateTableConstants {
 
     public static final String USER_TABLE = "users";
     public static final String CLIENT_INFO_TABLE = "client_info";
+    public static final String LOCATION_TABLE = "locations";
+    public static final String ELECTRONIC_CARD_TABLE = "electronic_card";
 
 }
