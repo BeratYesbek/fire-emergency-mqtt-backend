@@ -9,12 +9,10 @@ import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbClientInfo;
 import com.bm.fire_emergency_mqtt_backend.services.ClientInfoService;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.modelmapper.ModelMapper;
@@ -23,7 +21,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(SpringExtension.class)
@@ -43,7 +40,7 @@ public class ClientInfoControllerTest {
         when(clientInfoService.create(clientInfo)).thenReturn(prepareDataResultForClientInfo());
         when(modelMapper.map(createClientInfoDto, DbClientInfo.class)).thenReturn(clientInfo);
         ResponseEntity<DataResult<DbClientInfo>> response = clientInfoController.create(createClientInfoDto);
-        assertEquals(response.getStatusCode(), HttpStatus.CREATED);
+        assertEquals(HttpStatus.CREATED, response.getStatusCode());
     }
 
     public static DataResult<DbClientInfo> prepareDataResultForClientInfo() {
