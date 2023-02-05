@@ -29,7 +29,7 @@ public class ClientInfoController {
         DbClientInfo dbClientInfo = modelMapper.map(createClientInfoDto, DbClientInfo.class);
         DataResult<DbClientInfo> addedDbClientInfoResult = clientInfoService.create(dbClientInfo);
         if (addedDbClientInfoResult.isSuccess()) {
-            return ResponseEntity.ok(addedDbClientInfoResult);
+            return new ResponseEntity<>(addedDbClientInfoResult, HttpStatus.CREATED);
         }
         return new ResponseEntity<>(addedDbClientInfoResult, HttpStatus.BAD_REQUEST);
     }
