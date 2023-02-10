@@ -10,6 +10,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import java.util.Date;
+
 import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.HibernateTableConstants.GAS_SENSOR_LOG_TABLE;
 import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.HibernateDbGasSensorLogConstants.*;
 
@@ -59,4 +61,7 @@ public class DbGasSensorLog extends DbEntity {
 
     @Column(name = COL_STANDARD_TEST_CIRCUIT, nullable = false)
     private String standardTestCircuit;
+
+    @Column(name = COL_PREHEAT_TIME, nullable = false)
+    private Date preheatTime;
 }
