@@ -1,7 +1,7 @@
 package com.bm.fire_emergency_mqtt_backend.controllers;
 
 import com.bm.fire_emergency_mqtt_backend.api.controllers.ClientInfoController;
-import com.bm.fire_emergency_mqtt_backend.api.dto.clientInfo.CreateClientInfoDto;
+import com.bm.fire_emergency_mqtt_backend.api.dto.clientInfo.ClientInfoCreateDto;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.constants.messages.ClientInfoMessages;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.DataResult;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessDataResult;
@@ -56,7 +56,7 @@ public class ClientInfoControllerTest {
             .longitude(43.6545464)
             .build();
 
-    private static CreateClientInfoDto createClientInfoDto = CreateClientInfoDto.builder()
+    private static ClientInfoCreateDto createClientInfoDto = ClientInfoCreateDto.builder()
             .dbUser(null)
             .phoneName("BERAT Samsung Galaxy S21 FE")
             .phoneUUID("c939baa8-a578-11ed-b9df-0242ac120003")

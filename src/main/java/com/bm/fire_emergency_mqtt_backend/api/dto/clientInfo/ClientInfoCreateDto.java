@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-public class CreateClientInfoDto {
+public class ClientInfoCreateDto {
     @JsonProperty("latitude")
     private double latitude;
 
