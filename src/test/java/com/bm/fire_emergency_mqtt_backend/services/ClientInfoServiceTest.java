@@ -1,45 +1,60 @@
 package com.bm.fire_emergency_mqtt_backend.services;
 
+import com.bm.fire_emergency_mqtt_backend.DbConfiguration.DbConf;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.DataResult;
-import com.bm.fire_emergency_mqtt_backend.dao.abstracts.ClientInfoDao;
+import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.Result;
+import com.bm.fire_emergency_mqtt_backend.dao.abstracts.UserDao;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbClientInfo;
+import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbUser;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import static com.bm.fire_emergency_mqtt_backend.data.StaticDbEntitiesData.ID;
+import static com.bm.fire_emergency_mqtt_backend.data.StaticDbEntitiesData.clientInfo;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.any;
 
-@ExtendWith(SpringExtension.class)
-@RunWith(MockitoJUnitRunner.class)
+import java.util.List;
+
+@SpringBootTest
+@Import(DbConf.class)
+@ActiveProfiles("test")
 public class ClientInfoServiceTest {
 
-    @Mock
-    private ClientInfoDao clientInfoDao;
 
-    @InjectMocks
+    @Autowired
+    private UserDao userDao;
+
+    @Autowired
     private ClientInfoServiceImpl clientInfoService;
 
     @Test
     public void testCreate() {
-        when(clientInfoDao.save(any())).thenReturn(clientInfo);
-        DataResult<DbClientInfo> clientInfoDataResult = clientInfoService.create(any());
+        clientInfo.getDbUser().setId(userDao.findAll().get(0).getId());
+        DataResult<DbClientInfo> clientInfoDataResult = clientInfoService.create(clientInfo);
         assertTrue(clientInfoDataResult.isSuccess());
-
     }
 
-    private static final DbClientInfo clientInfo = DbClientInfo.builder()
-            .dbUser(null)
-            .phoneName("BERAT Samsung Galaxy S21 FE")
-            .phoneUUID("c939baa8-a578-11ed-b9df-0242ac120003")
-            .phoneBrand("Samsung Galaxy S21 FE")
-            .latitude(23.56455645)
-            .longitude(43.6545464)
-            .build();
+    @Test
+    public void testDelete() {
+        Result result = clientInfoService.delete(ID);
+        assertTrue(result.isSuccess());
+    }
 
+    @Test
+    public void testFindAll() {
+        DataResult<Page<DbClientInfo>> clientInfoDataResult = clientInfoService.findAll(PageRequest.of(0, 10));
+        assertTrue(clientInfoDataResult.isSuccess());
+    }
 }

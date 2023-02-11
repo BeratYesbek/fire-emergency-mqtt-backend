@@ -7,19 +7,20 @@ public final class StaticDbEntitiesData {
     private StaticDbEntitiesData() {
 
     }
+    public static final int ID = 1;
 
-    public static DbUser dbUser = DbUser.builder()
+    public static final DbUser dbUser = DbUser.builder()
             .email("berat@gmail.com")
             .fullName("berat yesbek")
             .password("123456")
             .username("feanor")
             .build();
 
-    public static DbClientInfo clientInfo = DbClientInfo.builder()
+    public static final DbClientInfo clientInfo = DbClientInfo.builder()
             .dbUser(dbUser)
             .phoneName("BERAT Samsung Galaxy S21 FE")
-            .phoneUUID("c939baa8-a578-11ed-b9df-0242ac120003")
             .phoneBrand("Samsung Galaxy S21 FE")
+            .operatingSystem("Android 12")
             .latitude(23.56455645)
             .longitude(43.6545464)
             .build();

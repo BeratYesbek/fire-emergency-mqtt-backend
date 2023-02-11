@@ -52,6 +52,10 @@ dependencies {
     testImplementation 'org.mockito:mockito-core:5.1.1'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+    // Test Db
+    implementation 'com.h2database:h2:2.1.214'
+
+
 
 }
 
