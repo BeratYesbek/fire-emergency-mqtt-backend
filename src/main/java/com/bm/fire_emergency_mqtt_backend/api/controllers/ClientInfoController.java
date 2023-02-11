@@ -25,13 +25,12 @@ public class ClientInfoController {
 
     private final ClientInfoService clientInfoService;
 
-    public ClientInfoController(ClientInfoService clientInfoService, ModelMapper modelMapper) {
+    public ClientInfoController(ClientInfoService clientInfoService) {
         this.clientInfoService = clientInfoService;
     }
 
     @PostMapping
     public ResponseEntity<DataResult<DbClientInfo>> create(@RequestBody ClientInfoCreateDto createClientInfoDto) {
-
         DataResult<DbClientInfo> addedDbClientInfoResult = clientInfoService
                 .create(convertCreateRequestToDbClientInfo(createClientInfoDto));
 

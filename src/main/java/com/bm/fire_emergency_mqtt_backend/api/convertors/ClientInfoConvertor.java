@@ -15,7 +15,7 @@ public final class ClientInfoConvertor {
 
     }
 
-    public static DbClientInfo convertCreateRequestToDbClientInfo(ClientInfoCreateDto clientInfoDto) {
+    public static DbClientInfo  convertCreateRequestToDbClientInfo(ClientInfoCreateDto clientInfoDto) {
         DbClientInfo dbClientInfo = DbClientInfo.builder()
                 .latitude(clientInfoDto.getLatitude())
                 .longitude(clientInfoDto.getLongitude())
