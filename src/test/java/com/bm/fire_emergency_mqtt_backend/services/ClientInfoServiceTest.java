@@ -1,37 +1,27 @@
 package com.bm.fire_emergency_mqtt_backend.services;
 
-import com.bm.fire_emergency_mqtt_backend.DbConfiguration.DbConf;
+import com.bm.fire_emergency_mqtt_backend.dbConfiguration.ExecuteDbSchema;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.DataResult;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.Result;
 import com.bm.fire_emergency_mqtt_backend.dao.abstracts.UserDao;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbClientInfo;
-import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbUser;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import static com.bm.fire_emergency_mqtt_backend.data.StaticDbEntitiesData.ID;
 import static com.bm.fire_emergency_mqtt_backend.data.StaticDbEntitiesData.clientInfo;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.when;
-
-import java.util.List;
 
 @SpringBootTest
-@Import(DbConf.class)
 @ActiveProfiles("test")
+@Import(ExecuteDbSchema.class)
 public class ClientInfoServiceTest {
 
+    public static final int ID = 26;
 
     @Autowired
     private UserDao userDao;
