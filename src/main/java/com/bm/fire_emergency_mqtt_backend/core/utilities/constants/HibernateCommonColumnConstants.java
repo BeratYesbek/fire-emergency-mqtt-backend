@@ -8,4 +8,6 @@ public final class HibernateCommonColumnConstants {
 
     public final static String COL_CREATED_AT = "created_at";
     public final static String COL_ID = "id";
+
+    public static final int CHARACTER_LENGTH_FOR_NAME = 50;
 }

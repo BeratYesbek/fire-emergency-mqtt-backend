@@ -32,4 +32,7 @@ public class DbUser extends DbEntity {
 
     @OneToMany(mappedBy = "dbUser", fetch = FetchType.LAZY)
     private List<DbClientInfo> dbClientInfoList;
+
+    @OneToMany(mappedBy = "dbUser", fetch = FetchType.LAZY)
+    private List<DbElectronicCardUser> dbElectronicCardUserList;
 }
