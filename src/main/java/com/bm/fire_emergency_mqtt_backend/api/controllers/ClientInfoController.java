@@ -3,7 +3,7 @@ package com.bm.fire_emergency_mqtt_backend.api.controllers;
 import com.bm.fire_emergency_mqtt_backend.api.dto.clientInfo.CreateClientInfoDto;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.DataResult;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbClientInfo;
-import com.bm.fire_emergency_mqtt_backend.services.ClientInfoService;
+import com.bm.fire_emergency_mqtt_backend.services.abstracts.ClientInfoService;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

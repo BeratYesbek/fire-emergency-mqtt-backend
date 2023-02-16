@@ -1,12 +1,12 @@
-package com.bm.fire_emergency_mqtt_backend.services;
+package com.bm.fire_emergency_mqtt_backend.services.concretes;
 
 import com.bm.fire_emergency_mqtt_backend.core.utilities.constants.messages.ClientInfoMessages;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.DataResult;
-import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.ErrorDataResult;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.Result;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessDataResult;
 import com.bm.fire_emergency_mqtt_backend.dataAccess.abstracts.ClientInfoDao;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbClientInfo;
+import com.bm.fire_emergency_mqtt_backend.services.abstracts.ClientInfoService;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 

@@ -10,4 +10,4 @@ CREATE TABLE users
 
     created_at TIMESTAMP(6) NOT NULL
 
-)
+);

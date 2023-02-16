@@ -8,5 +8,5 @@ public final class HibernateLocationColumnConstants {
     public static final String COl_LATITUDE = "latitude";
     public static final String COl_LONGITUDE = "longitude";
 
-//    public static final String COL_ELECTRONIC_CARD_ID = "electronic_card_id";
+    public static final String COL_ELECTRONIC_CARD_ID = "electronic_card_id";
 }

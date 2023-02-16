@@ -5,10 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+
+import java.util.UUID;
 
 import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.HibernateTableConstants.ELECTRONIC_CARD_TABLE;
 import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.HibernateElectronicCardColumnContants.*;
@@ -21,10 +22,20 @@ import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.Hibern
 @Table(name = ELECTRONIC_CARD_TABLE)
 public class DbElectronicCard extends DbEntity {
 
-    @Column(name = COL_ELECTRONIC_CARD_UUID,nullable = false)
+    @GeneratedValue(generator = "uuid2",strategy = GenerationType.AUTO)
+    @GenericGenerator(name = "uuid2",strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = COL_ELECTRONIC_CARD_UUID,columnDefinition = "VARCHAR(255)", unique = true, nullable = false)
     private String electronicCardUUID;
 
     @Column(name = COL_QR_CODE,nullable = false)
     private String qrCode;
 
+
+
+
+
+    @PrePersist
+    private void assignUIID(){
+        electronicCardUUID = UUID.randomUUID().toString();
+    }
 }

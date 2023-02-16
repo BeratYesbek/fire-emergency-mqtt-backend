@@ -12,6 +12,5 @@ public final class HibernateClientInfoColumnConstants {
     public static final String COl_PHONE_BRAND = "phone_brand";
     public static final String COl_OPERATING_SYSTEM = "operating_system";
     public static final String COl_PHONE_UUID = "phone_uuid";
-
     public static final String COL_USER_ID = "user_id";
 }
