@@ -24,4 +24,6 @@ public class GasSensorLogServiceImpl implements GasSensorLogService {
         return new SuccessDataResult<>(gasSensorLogDao.save(dbGasSensorLog), CREATE_GAS_SENSOR_LOG);
     }
 
+
+
 }
