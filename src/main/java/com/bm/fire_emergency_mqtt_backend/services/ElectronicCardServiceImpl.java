@@ -1,13 +1,13 @@
-package com.bm.fire_emergency_mqtt_backend.services.concretes;
+package com.bm.fire_emergency_mqtt_backend.services;
 
 import com.bm.fire_emergency_mqtt_backend.core.utilities.constants.messages.ElectronicCardMessages;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.DataResult;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.Result;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessDataResult;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessResult;
-import com.bm.fire_emergency_mqtt_backend.dataAccess.abstracts.ElectronicCardDao;
+import com.bm.fire_emergency_mqtt_backend.dao.abstracts.ElectronicCardDao;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbElectronicCard;
-import com.bm.fire_emergency_mqtt_backend.services.abstracts.ElectronicCardService;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -25,7 +25,7 @@ public class ElectronicCardServiceImpl implements ElectronicCardService {
     }
 
     @Override
-    public DataResult<DbElectronicCard> update(DbElectronicCard entity, int id) throws Exception {
+    public DataResult<DbElectronicCard> update(DbElectronicCard entity, int id)  {
         return new SuccessDataResult<>(electronicCardDao.save(entity),ElectronicCardMessages.UPDATE_ELECTRONIC_CARD);
     }
 

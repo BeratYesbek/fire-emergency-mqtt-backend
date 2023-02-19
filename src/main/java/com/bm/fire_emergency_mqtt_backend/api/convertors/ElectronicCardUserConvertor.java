@@ -1,7 +1,6 @@
 package com.bm.fire_emergency_mqtt_backend.api.convertors;
 
 import com.bm.fire_emergency_mqtt_backend.api.dto.PageDto;
-import com.bm.fire_emergency_mqtt_backend.api.dto.clientInfo.ClientInfoReadDto;
 import com.bm.fire_emergency_mqtt_backend.api.dto.electronicCardUser.ElectronicCardUserCreateDto;
 import com.bm.fire_emergency_mqtt_backend.api.dto.electronicCardUser.ElectronicCardUserReadDto;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbElectronicCardUser;

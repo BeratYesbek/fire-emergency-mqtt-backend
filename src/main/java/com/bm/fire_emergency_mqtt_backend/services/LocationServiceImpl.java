@@ -1,13 +1,13 @@
-package com.bm.fire_emergency_mqtt_backend.services.concretes;
+package com.bm.fire_emergency_mqtt_backend.services;
 
 import com.bm.fire_emergency_mqtt_backend.core.utilities.constants.messages.LocationMessages;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.DataResult;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.Result;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessDataResult;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessResult;
-import com.bm.fire_emergency_mqtt_backend.dataAccess.abstracts.LocationDao;
+import com.bm.fire_emergency_mqtt_backend.dao.abstracts.LocationDao;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbLocation;
-import com.bm.fire_emergency_mqtt_backend.services.abstracts.LocationService;
+import com.bm.fire_emergency_mqtt_backend.services.LocationService;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -25,7 +25,7 @@ public class LocationServiceImpl implements LocationService {
     }
 
     @Override
-    public DataResult<DbLocation> update(DbLocation entity, int id) throws Exception {
+    public DataResult<DbLocation> update(DbLocation entity, int id)  {
         return new SuccessDataResult<>(locationDao.save(entity),LocationMessages.UPDATE_LOCATION);
     }
 

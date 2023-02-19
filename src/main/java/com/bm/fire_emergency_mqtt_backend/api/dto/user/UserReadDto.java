@@ -2,7 +2,6 @@ package com.bm.fire_emergency_mqtt_backend.api.dto.user;
 
 import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.util.Date;
 
