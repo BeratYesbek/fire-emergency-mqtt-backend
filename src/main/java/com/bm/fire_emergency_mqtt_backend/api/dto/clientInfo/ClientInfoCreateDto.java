@@ -2,18 +2,14 @@ package com.bm.fire_emergency_mqtt_backend.api.dto.clientInfo;
 
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbUser;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
-
-import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.HibernateClientInfoColumnConstants.*;
-import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.HibernateCommonColumnConstants.COL_ID;
 
 @Getter
 @Setter
-public class CreateClientInfoDto {
+@Builder
+public class ClientInfoCreateDto {
     @JsonProperty("latitude")
     private double latitude;
 

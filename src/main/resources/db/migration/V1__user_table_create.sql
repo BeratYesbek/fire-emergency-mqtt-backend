@@ -8,6 +8,8 @@ CREATE TABLE users
     phone_uuid VARCHAR(255) NOT NULL,
 
 
-    created_at TIMESTAMP(6) NOT NULL
+    created_at TIMESTAMP(6) NOT NULL,
+    deleted         BOOLEAN,
+    version         NUMERIC(10)
 
 );

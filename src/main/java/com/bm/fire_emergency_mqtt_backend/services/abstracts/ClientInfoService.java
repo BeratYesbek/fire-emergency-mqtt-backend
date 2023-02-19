@@ -1,7 +1,16 @@
-package com.bm.fire_emergency_mqtt_backend.services.abstracts;
+package com.bm.fire_emergency_mqtt_backend.services;
 
+import java.util.List;
+import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.DataResult;
+import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.Result;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbClientInfo;
-import com.bm.fire_emergency_mqtt_backend.services.abstracts.common.BaseServiceRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
-public interface ClientInfoService extends BaseServiceRepository<DbClientInfo> {
+public interface ClientInfoService {
+    DataResult<DbClientInfo> create(DbClientInfo clientInfo);
+
+    Result delete(int id);
+
+    DataResult<Page<DbClientInfo>> findAll(Pageable pageable);
 }
