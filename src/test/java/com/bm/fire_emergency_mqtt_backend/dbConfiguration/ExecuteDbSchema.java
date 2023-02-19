@@ -25,6 +25,8 @@ public class ExecuteDbSchema {
                 ScriptUtils.executeSqlScript(con, new ClassPathResource("test/schema/schema.sql"));
                 ScriptUtils.executeSqlScript(con, new ClassPathResource("test/user.sql"));
                 ScriptUtils.executeSqlScript(con, new ClassPathResource("test/client-info.sql"));
+                ScriptUtils.executeSqlScript(con, new ClassPathResource("test/electronic-card-user.sql"));
+
 
                 dataLoaded = true;
             }

@@ -34,6 +34,28 @@ CREATE TABLE client_info
 ALTER TABLE client_info
     ADD FOREIGN KEY (user_id) references users (id);
 
+CREATE TABLE electronic_cards
+(
+    id                 SERIAL PRIMARY KEY NOT NULL,
+    qrCode             VARCHAR(255)       NOT NULL,
+    electronicCardUUID VARCHAR(255)       NOT NULL,
+
+    created_at         TIMESTAMP(6)       NOT NULL
+);
+
+CREATE TABLE location_table
+(
+    id                 SERIAL PRIMARY KEY NOT NULL,
+    electronic_card_id INTEGER REFERENCES electronic_cards (id),
+    latitude           DECIMAL            NOT NULL,
+    longitude          DECIMAL            NOT NULL,
+
+    created_at         TIMESTAMP(6)       NOT NULL
+);
+
+ALTER TABLE location_table
+    ADD FOREIGN KEY (electronic_card_id) references electronic_cards (id);
+
 CREATE TABLE gas_sensor_logs
 (
     id                    SERIAL PRIMARY KEY NOT NULL,
@@ -57,4 +79,21 @@ CREATE TABLE gas_sensor_logs
     version               NUMERIC(10)
 
 );
+
+CREATE TABLE electronic_card_users
+(
+    id         SERIAL PRIMARY KEY NOT NULL,
+    name       VARCHAR(50)        NOT NULL,
+    uuid       VARCHAR(250)       NOT NULL,
+    user_id    INTEGER REFERENCES users (id),
+
+    deleted    BOOLEAN,
+    version    NUMERIC(10),
+    created_at TIMESTAMP(6)       NOT NULL
+
+
+);
+
+ALTER TABLE electronic_card_users
+    ADD FOREIGN KEY (user_id) references users (id);
 
