@@ -1,6 +1,7 @@
 package com.bm.fire_emergency_mqtt_backend.data;
 
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbClientInfo;
+import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbElectronicCardUser;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbGasSensorLog;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbUser;
 
@@ -27,6 +28,10 @@ public final class StaticDbEntitiesData {
             .longitude(43.6545464)
             .build();
 
+    public static final DbElectronicCardUser electronicCardUser = DbElectronicCardUser.builder()
+            .dbUser(dbUser)
+            .name("Valinor")
+            .build();
 
     public static final DbGasSensorLog gasSensorLog = DbGasSensorLog.builder()
             .detectionGas("example")
