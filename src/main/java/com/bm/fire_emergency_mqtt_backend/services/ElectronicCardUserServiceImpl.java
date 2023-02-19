@@ -6,6 +6,7 @@ import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessDataRes
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessResult;
 import com.bm.fire_emergency_mqtt_backend.dao.abstracts.ElectronicCardUserDao;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbElectronicCardUser;
+import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbUser;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -40,7 +41,7 @@ public class ElectronicCardUserServiceImpl implements ElectronicCardUserService 
 
     @Override
     public DataResult<Page<DbElectronicCardUser>> findByUserId(Pageable pageable, int userId) {
-        Page<DbElectronicCardUser> dbElectronicCardUsers = electronicCardUserDao.findDbElectronicCardUserByDbUser(pageable, userId);
+        Page<DbElectronicCardUser> dbElectronicCardUsers = electronicCardUserDao.findAllByDbUserId(userId, pageable);
         return new SuccessDataResult<>(dbElectronicCardUsers, LIST_ELECTRONIC_CARD_USER);
     }
 }

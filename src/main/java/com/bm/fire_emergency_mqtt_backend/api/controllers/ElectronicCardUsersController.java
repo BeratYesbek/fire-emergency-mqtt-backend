@@ -50,6 +50,5 @@ public class ElectronicCardUsersController {
             return new ResponseEntity<>(new SuccessDataResult<>(electronicCardUserReadDtoPageDto, pageDataResult.getMessage()), HttpStatus.OK);
         }
         return new ResponseEntity<>(new SuccessDataResult<>(null, pageDataResult.getMessage()), HttpStatus.BAD_REQUEST);
-
     }
 }

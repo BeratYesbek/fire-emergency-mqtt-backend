@@ -48,7 +48,6 @@ public class DbClientInfo extends DbEntity {
     @JoinColumn(name = COL_USER_ID, referencedColumnName = COL_ID, nullable = false)
     private DbUser dbUser;
 
-
     @PrePersist
     private void assignUIID() {
         phoneUUID = UUID.randomUUID().toString();
