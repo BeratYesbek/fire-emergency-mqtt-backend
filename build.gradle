@@ -55,6 +55,12 @@ dependencies {
     // Test Db
     implementation 'com.h2database:h2:2.1.214'
 
+    //Spring Security
+   // implementation 'org.springframework.security:spring-security-crypto:6.0.1'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'com.auth0:java-jwt:4.3.0'
+
+
 
 
 }
