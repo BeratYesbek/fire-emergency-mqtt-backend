@@ -11,3 +11,4 @@ CREATE TABLE user_roles
 
 ALTER TABLE user_roles ADD FOREIGN KEY (user_id) references users(id);
 ALTER TABLE user_roles ADD FOREIGN KEY (roles_id) references roles(id);
+
