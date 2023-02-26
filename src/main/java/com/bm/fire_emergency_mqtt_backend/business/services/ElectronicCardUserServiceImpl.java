@@ -1,4 +1,4 @@
-package com.bm.fire_emergency_mqtt_backend.services;
+package com.bm.fire_emergency_mqtt_backend.business.services;
 
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.DataResult;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.Result;
@@ -6,7 +6,6 @@ import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessDataRes
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessResult;
 import com.bm.fire_emergency_mqtt_backend.dao.abstracts.ElectronicCardUserDao;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbElectronicCardUser;
-import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbUser;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

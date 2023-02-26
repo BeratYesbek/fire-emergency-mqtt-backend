@@ -8,7 +8,7 @@ import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.ErrorDataResul
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.Result;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessDataResult;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbClientInfo;
-import com.bm.fire_emergency_mqtt_backend.services.ClientInfoService;
+import com.bm.fire_emergency_mqtt_backend.business.services.ClientInfoService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;

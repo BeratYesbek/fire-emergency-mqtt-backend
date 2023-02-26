@@ -1,4 +1,4 @@
-package com.bm.fire_emergency_mqtt_backend.services;
+package com.bm.fire_emergency_mqtt_backend.business.services;
 
 import java.util.List;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.DataResult;

@@ -1,8 +1,6 @@
-package com.bm.fire_emergency_mqtt_backend.services;
+package com.bm.fire_emergency_mqtt_backend.business.services;
 
-import com.bm.fire_emergency_mqtt_backend.core.utilities.constants.messages.GasSensorLogMessage;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.DataResult;
-import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.Result;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessDataResult;
 import com.bm.fire_emergency_mqtt_backend.dao.abstracts.GasSensorLogDao;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbGasSensorLog;

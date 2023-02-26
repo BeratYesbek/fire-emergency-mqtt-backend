@@ -10,7 +10,7 @@ import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.Result;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessDataResult;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessResult;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbClientInfo;
-import com.bm.fire_emergency_mqtt_backend.services.ClientInfoService;
+import com.bm.fire_emergency_mqtt_backend.business.services.ClientInfoService;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

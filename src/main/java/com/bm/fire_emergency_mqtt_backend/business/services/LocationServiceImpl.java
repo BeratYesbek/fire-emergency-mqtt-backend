@@ -1,4 +1,4 @@
-package com.bm.fire_emergency_mqtt_backend.services;
+package com.bm.fire_emergency_mqtt_backend.business.services;
 
 import com.bm.fire_emergency_mqtt_backend.core.utilities.constants.messages.LocationMessages;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.DataResult;
@@ -7,7 +7,6 @@ import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessDataRes
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessResult;
 import com.bm.fire_emergency_mqtt_backend.dao.abstracts.LocationDao;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbLocation;
-import com.bm.fire_emergency_mqtt_backend.services.LocationService;
 import org.springframework.stereotype.Service;
 
 @Service

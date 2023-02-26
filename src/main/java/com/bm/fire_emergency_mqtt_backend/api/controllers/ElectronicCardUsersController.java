@@ -7,7 +7,7 @@ import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.DataResult;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.ErrorDataResult;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessDataResult;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbElectronicCardUser;
-import com.bm.fire_emergency_mqtt_backend.services.ElectronicCardUserService;
+import com.bm.fire_emergency_mqtt_backend.business.services.ElectronicCardUserService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;

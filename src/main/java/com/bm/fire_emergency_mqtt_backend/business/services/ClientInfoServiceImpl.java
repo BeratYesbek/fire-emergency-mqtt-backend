@@ -1,6 +1,5 @@
-package com.bm.fire_emergency_mqtt_backend.services;
+package com.bm.fire_emergency_mqtt_backend.business.services;
 
-import com.bm.fire_emergency_mqtt_backend.core.utilities.constants.messages.ClientInfoMessages;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.DataResult;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.Result;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessDataResult;
@@ -11,8 +10,6 @@ import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbClientInfo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.messages.ClientInfoMessages.*;
 

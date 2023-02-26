@@ -7,9 +7,8 @@ import com.bm.fire_emergency_mqtt_backend.api.dto.electronicCardUser.ElectronicC
 import com.bm.fire_emergency_mqtt_backend.core.utilities.constants.messages.ElectronicCardUserMessage;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.DataResult;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessDataResult;
-import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbClientInfo;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbElectronicCardUser;
-import com.bm.fire_emergency_mqtt_backend.services.ElectronicCardUserService;
+import com.bm.fire_emergency_mqtt_backend.business.services.ElectronicCardUserService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
