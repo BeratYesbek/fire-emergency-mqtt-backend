@@ -8,7 +8,7 @@ import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.messag
 
 public class AuthRules {
 
-    public Result checkUsernameHasSomeoneElse(String username, UserService userService) {
+    public static Result checkUsernameHasSomeoneElse(String username, final UserService userService) {
         DataResult<DbUser> userDataResult = userService.findByUsername(username);
         if (userDataResult.isSuccess()) {
             return new ErrorResult(USERNAME_HAS_ALREADY_TAKEN);
@@ -16,7 +16,7 @@ public class AuthRules {
         return new SuccessResult(USERNAME_AVAILABLE);
     }
 
-    public Result checkEmailHasSomeoneElse(String email, UserService userService) {
+    public static Result checkEmailHasSomeoneElse(String email, final UserService userService) {
         DataResult<DbUser> userDataResult = userService.findByEmail(email);
         if (userDataResult.isSuccess()) {
             return new ErrorResult(EMAIL_HAS_ALREADY_TAKEN);
