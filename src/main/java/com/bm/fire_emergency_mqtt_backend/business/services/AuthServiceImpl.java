@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.messages.AuthMessages.USER_CREATED;
+import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.messages.AuthMessages.*;
 
 @Service
 public class AuthServiceImpl implements AuthService {
@@ -35,7 +35,24 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public DataResult<Token> login(LoginDto loginDto) {
-        return null;
+        DataResult<DbUser> dbUserDataResult = null;
+        if (loginDto.getUsername() != null)
+            dbUserDataResult = userService.findByUsername(loginDto.getUsername());
+        else if (loginDto.getEmail() != null)
+            dbUserDataResult = userService.findByEmail(loginDto.getEmail());
+        if (!dbUserDataResult.isSuccess())
+            return new ErrorDataResult<>(null, dbUserDataResult.getMessage());
+        boolean result = PasswordHelper.verifyPassword(loginDto.getPassword(), dbUserDataResult.getData().getPassword());
+        if (result) {
+            List<String> roles = userRoleService.findUserRoleByUserId(
+                    dbUserDataResult.getData().getId()).getData().stream().map(item ->
+                    item.getDbRole().getName()).collect(Collectors.toList());
+            Token token = jwtHelper.createToken(dbUserDataResult.getData(), roles.toArray(String[]::new), "");
+            token.setUser(dbUserDataResult.getData());
+            return new SuccessDataResult<>(token, USER_LOGGED_IN);
+        }
+
+        return new ErrorDataResult<>(null, INVALID_CREDENTIALS);
     }
 
     @Override

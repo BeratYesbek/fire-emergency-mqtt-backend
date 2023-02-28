@@ -7,4 +7,7 @@ public class AuthMessages {
     public static final String EMAIL_HAS_ALREADY_TAKEN = "This user email exists";
     public static final String EMAIL_AVAILABLE = "Email is available for using";
     public static final String USER_CREATED = "User has been created successfully!";
+    public static final String INVALID_CREDENTIALS = "Invalid Credentials";
+    public static final String USER_LOGGED_IN = "User logged in successfully!";
+
 }

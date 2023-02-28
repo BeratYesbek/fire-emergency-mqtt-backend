@@ -27,7 +27,8 @@ public class UserRoleServiceImpl implements UserRoleService {
 
     @Override
     public DataResult<DbUserRole> createDefaultRole(DbUserRole dbUserRole) {
-        DataResult<DbRole> dbRoleDataResult = roleService.findDefaultRole(Role.USER.name());
+        String defaultRoleName = Role.USER.name();
+        DataResult<DbRole> dbRoleDataResult = roleService.findDefaultRole(defaultRoleName);
         if (!dbRoleDataResult.isSuccess()) {
             return new ErrorDataResult<>(null, dbRoleDataResult.getMessage());
         }
