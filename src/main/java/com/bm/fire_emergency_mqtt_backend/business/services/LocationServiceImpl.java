@@ -8,8 +8,10 @@ import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessResult;
 import com.bm.fire_emergency_mqtt_backend.dao.abstracts.LocationDao;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbLocation;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class LocationServiceImpl implements LocationService {
 
     private final LocationDao locationDao;
@@ -23,14 +25,4 @@ public class LocationServiceImpl implements LocationService {
         return new SuccessDataResult<>(locationDao.save(entity), LocationMessages.CREATE_LOCATION);
     }
 
-    @Override
-    public DataResult<DbLocation> update(DbLocation entity, int id)  {
-        return new SuccessDataResult<>(locationDao.save(entity),LocationMessages.UPDATE_LOCATION);
-    }
-
-    @Override
-    public Result delete(int id) {
-        locationDao.deleteById(id);
-        return new SuccessResult(LocationMessages.DELETE_LOCATION);
-    }
 }

@@ -6,10 +6,12 @@ import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessDataRes
 import com.bm.fire_emergency_mqtt_backend.dao.abstracts.RoleDao;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbRole;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.messages.UserRoleMessage.*;
 
 @Service
+@Transactional
 public class RoleServiceImpl implements RoleService{
 
     private final RoleDao roleDao;

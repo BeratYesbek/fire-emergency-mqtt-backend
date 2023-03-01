@@ -5,10 +5,12 @@ import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessDataRes
 import com.bm.fire_emergency_mqtt_backend.dao.abstracts.GasSensorLogDao;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbGasSensorLog;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.messages.GasSensorLogMessage.*;
 
 @Service
+@Transactional
 public class GasSensorLogServiceImpl implements GasSensorLogService {
 
     private final GasSensorLogDao gasSensorLogDao;

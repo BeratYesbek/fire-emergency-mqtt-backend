@@ -14,6 +14,7 @@ import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessDataRes
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbUser;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbUserRole;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,6 +22,7 @@ import java.util.stream.Collectors;
 import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.messages.AuthMessages.*;
 
 @Service
+@Transactional
 public class AuthServiceImpl implements AuthService {
 
     private final UserService userService;

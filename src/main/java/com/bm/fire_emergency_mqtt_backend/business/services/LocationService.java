@@ -8,8 +8,4 @@ public interface LocationService {
 
     DataResult<DbLocation> create(DbLocation entity);
 
-    DataResult<DbLocation> update(DbLocation entity, int id);
-
-    Result delete(int id);
-
 }

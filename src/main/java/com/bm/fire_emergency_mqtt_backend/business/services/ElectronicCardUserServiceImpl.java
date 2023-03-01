@@ -9,10 +9,12 @@ import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbElectronicCardUse
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.messages.ElectronicCardUserMessage.*;
 
 @Service
+@Transactional
 public class ElectronicCardUserServiceImpl implements ElectronicCardUserService {
 
     private final ElectronicCardUserDao electronicCardUserDao;

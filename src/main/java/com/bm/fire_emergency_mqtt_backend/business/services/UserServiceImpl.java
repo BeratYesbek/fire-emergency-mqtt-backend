@@ -6,10 +6,12 @@ import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessDataRes
 import com.bm.fire_emergency_mqtt_backend.dao.abstracts.UserDao;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbUser;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.messages.UserMessages.*;
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
 
     private final UserDao userDao;
