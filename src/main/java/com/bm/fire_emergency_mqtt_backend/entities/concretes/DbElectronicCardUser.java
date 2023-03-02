@@ -12,6 +12,7 @@ import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.Hibern
 import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.HibernateCommonColumnConstants.COL_ID;
 import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.HibernateTableConstants.ELECTRONIC_CARD_USER_TABLE;
 import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.HibernateDbElectronicCardUserColumnConstants.*;
+
 @Entity
 @Getter
 @Builder
@@ -35,5 +36,17 @@ public class DbElectronicCardUser extends DbEntity {
     @PrePersist
     private void assignUIID() {
         uuid = UUID.randomUUID().toString();
+    }
+
+    @Override
+    public String toString() {
+        return "DbElectronicCardUser{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", uuid='" + uuid + '\'' +
+                ", version=" + version +
+                ", deleted=" + deleted +
+                ", createdAt=" + createdAt +
+                '}';
     }
 }

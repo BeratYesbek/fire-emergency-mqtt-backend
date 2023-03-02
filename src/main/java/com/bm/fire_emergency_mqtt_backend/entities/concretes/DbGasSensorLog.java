@@ -64,4 +64,28 @@ public class DbGasSensorLog extends DbEntity {
 
     @Column(name = COL_PREHEAT_TIME, nullable = false)
     private Date preheatTime;
+
+    @Override
+    public String toString() {
+        return "DbGasSensorLog{" +
+                "id=" + id +
+                ", modelNo='" + modelNo + '\'' +
+                ", sensorType='" + sensorType + '\'' +
+                ", detectionGas='" + detectionGas + '\'' +
+                ", concentration='" + concentration + '\'' +
+                ", loopVoltage='" + loopVoltage + '\'' +
+                ", heaterVoltage='" + heaterVoltage + '\'' +
+                ", loadResistance='" + loadResistance + '\'' +
+                ", heaterConsumption='" + heaterConsumption + '\'' +
+                ", sensingResistance='" + sensingResistance + '\'' +
+                ", sensitivity='" + sensitivity + '\'' +
+                ", slope='" + slope + '\'' +
+                ", temHumidity='" + temHumidity + '\'' +
+                ", standardTestCircuit='" + standardTestCircuit + '\'' +
+                ", preheatTime=" + preheatTime +
+                ", version=" + version +
+                ", deleted=" + deleted +
+                ", createdAt=" + createdAt +
+                '}';
+    }
 }

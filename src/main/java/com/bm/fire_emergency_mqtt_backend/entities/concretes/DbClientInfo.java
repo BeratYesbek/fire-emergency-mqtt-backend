@@ -52,4 +52,20 @@ public class DbClientInfo extends DbEntity {
     private void assignUIID() {
         phoneUUID = UUID.randomUUID().toString();
     }
+
+    @Override
+    public String toString() {
+        return "DbClientInfo{" +
+                "id=" + id +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", phoneName='" + phoneName + '\'' +
+                ", phoneBrand='" + phoneBrand + '\'' +
+                ", operatingSystem='" + operatingSystem + '\'' +
+                ", phoneUUID='" + phoneUUID + '\'' +
+                ", version=" + version +
+                ", deleted=" + deleted +
+                ", createdAt=" + createdAt +
+                '}';
+    }
 }

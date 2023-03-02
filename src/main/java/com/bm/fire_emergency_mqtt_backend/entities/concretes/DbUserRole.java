@@ -1,10 +1,7 @@
 package com.bm.fire_emergency_mqtt_backend.entities.concretes;
 
 import com.bm.fire_emergency_mqtt_backend.entities.abstracts.DbEntity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -16,7 +13,8 @@ import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.Hibern
 import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.HibernateUserRoleColumnConstants.COL_ROLE_ID;
 import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.HibernateUserRoleColumnConstants.COL_USER_ID;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Builder
 @AllArgsConstructor
@@ -31,4 +29,16 @@ public class DbUserRole extends DbEntity {
     @ManyToOne
     @JoinColumn(name = COL_ROLE_ID, referencedColumnName = COL_ID, nullable = false)
     private DbRole dbRole;
+
+    @Override
+    public String toString() {
+        return "DbUserRole{" +
+                "id=" + id +
+                ", dbUser=" + dbUser +
+                ", dbRole=" + dbRole +
+                ", version=" + version +
+                ", deleted=" + deleted +
+                ", createdAt=" + createdAt +
+                '}';
+    }
 }

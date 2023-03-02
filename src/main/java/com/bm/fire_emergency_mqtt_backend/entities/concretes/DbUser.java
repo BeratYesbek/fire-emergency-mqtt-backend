@@ -35,4 +35,18 @@ public class DbUser extends DbEntity {
 
     @OneToMany(mappedBy = "dbUser", fetch = FetchType.LAZY)
     private List<DbElectronicCardUser> dbElectronicCardUserList;
+
+    @Override
+    public String toString() {
+        return "DbUser{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", password='" + password + '\'' +
+                ", version=" + version +
+                ", deleted=" + deleted +
+                ", createdAt=" + createdAt +
+                '}';
+    }
 }
