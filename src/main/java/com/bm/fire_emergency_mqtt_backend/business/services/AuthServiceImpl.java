@@ -86,4 +86,5 @@ public class AuthServiceImpl implements AuthService {
         token.setUser(dbUser);
         return new SuccessDataResult<>(token, USER_CREATED);
     }
+
 }
