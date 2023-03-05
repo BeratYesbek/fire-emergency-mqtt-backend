@@ -19,7 +19,7 @@ import static com.bm.fire_emergency_mqtt_backend.api.convertors.AuthConvertor.*;
 
 @RestController
 @RequestMapping("api/auth")
-public class AuthController {
+public class AuthController extends BaseController {
 
     private final AuthService authService;
 

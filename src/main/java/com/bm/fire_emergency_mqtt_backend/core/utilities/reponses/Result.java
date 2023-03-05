@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Result {
+public class  Result {
     private String message;
     private boolean success;
 

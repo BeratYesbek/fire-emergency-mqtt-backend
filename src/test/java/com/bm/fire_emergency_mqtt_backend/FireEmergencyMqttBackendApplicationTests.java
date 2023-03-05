@@ -1,6 +1,6 @@
 package com.bm.fire_emergency_mqtt_backend;
 
-import com.bm.fire_emergency_mqtt_backend.business.validations.UserValidation;
+import com.bm.fire_emergency_mqtt_backend.business.validations.UserValidator;
 import com.bm.fire_emergency_mqtt_backend.core.annotations.Validation;
 import com.bm.fire_emergency_mqtt_backend.dbConfiguration.ExecuteDbSchema;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbUser;
@@ -14,7 +14,7 @@ import org.springframework.test.context.ActiveProfiles;
 @Import(ExecuteDbSchema.class)
 class FireEmergencyMqttBackendApplicationTests {
 
-    @Validation(validator = UserValidation.class)
+    @Validation(validator = UserValidator.class)
     public void save(DbUser dbUser) {
 
     }

@@ -1,6 +1,6 @@
 package com.bm.fire_emergency_mqtt_backend.business.services;
 
-import com.bm.fire_emergency_mqtt_backend.business.validations.UserValidation;
+import com.bm.fire_emergency_mqtt_backend.business.validations.UserValidator;
 import com.bm.fire_emergency_mqtt_backend.core.annotations.Validation;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.DataResult;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.ErrorDataResult;
@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
         this.userDao = userDao;
     }
 
-    @Validation(validator = UserValidation.class)
+    @Validation(validator = UserValidator.class)
     @Override
     public DataResult<DbUser> create(DbUser dbUser) {
         return new SuccessDataResult<>(userDao.save(dbUser), CREATE_USER);

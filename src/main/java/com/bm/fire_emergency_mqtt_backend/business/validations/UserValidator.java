@@ -5,7 +5,7 @@ import com.bm.fire_emergency_mqtt_backend.core.validation.ValidationRule;
 import com.bm.fire_emergency_mqtt_backend.core.validation.Validator;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbUser;
 
-public final class UserValidation implements Validator<DbUser> {
+public final class UserValidator implements Validator<DbUser> {
 
 
     @Override
@@ -23,4 +23,9 @@ public final class UserValidation implements Validator<DbUser> {
     private ValidationRule fullNameNotNull(String fullName) {
         return new ValidationRule(!fullName.isEmpty(), "Full name cannot be empty");
     }
+
+    private ValidationRule usernameNotNull(String userName) {
+        return new ValidationRule(!userName.isEmpty(), "Username cannot be empty");
+    }
+
 }
