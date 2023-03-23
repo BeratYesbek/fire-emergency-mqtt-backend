@@ -39,8 +39,9 @@ services:
       - SPRING_FLYWAY_USER=user
       - SPRING_FLYWAY_PASSWORD=user123
       - SPRING_FLYWAY_BASELINE_ON_MIGRATE=true
+      - SERVER_PORT=8000
     ports:
-      - "8081:8080"
+      - "8000:8080"
 
 
 volumes:
