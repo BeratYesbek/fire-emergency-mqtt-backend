@@ -4,6 +4,8 @@ import com.bm.fire_emergency_mqtt_backend.core.annotations.MqttListener;
 import org.eclipse.paho.client.mqttv3.IMqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
+import java.util.concurrent.CompletableFuture;
+
 import static com.bm.fire_emergency_mqtt_backend.mqtt.constants.MqttConstants.URGENT;
 
 @MqttListener(name = "UrgentListener")
@@ -13,6 +15,7 @@ public class MqttUrgentListener extends AbstractMqttListener {
     public MqttUrgentListener(IMqttClient mqttClient) {
         super(mqttClient);
         this.mqttClient = mqttClient;
+        CompletableFuture.runAsync(this::listener);
     }
 
     @Override

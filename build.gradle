@@ -64,6 +64,9 @@ dependencies {
     implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.1'
     implementation "org.springframework.integration:spring-integration-mqtt:6.0.4"
 
+    //Firebase Cloud Messaging
+    implementation 'com.google.firebase:firebase-admin:9.1.1'
+
 
 
 
