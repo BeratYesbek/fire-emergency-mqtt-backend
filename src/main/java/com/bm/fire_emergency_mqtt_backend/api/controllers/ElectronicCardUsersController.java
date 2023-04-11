@@ -18,7 +18,7 @@ import static com.bm.fire_emergency_mqtt_backend.api.convertors.ElectronicCardUs
 
 @RestController
 @RequestMapping("api/electronicCardUsers")
-public class ElectronicCardUsersController {
+public class ElectronicCardUsersController extends BaseController {
 
     private final ElectronicCardUserService electronicCardUserService;
 

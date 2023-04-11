@@ -20,7 +20,7 @@ import static com.bm.fire_emergency_mqtt_backend.api.convertors.ClientInfoConver
 
 @RestController
 @RequestMapping("api/clientInfo")
-public class ClientInfoController {
+public class ClientInfoController extends BaseController {
 
     private final ClientInfoService clientInfoService;
 

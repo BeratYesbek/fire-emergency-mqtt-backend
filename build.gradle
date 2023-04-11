@@ -60,6 +60,12 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'com.auth0:java-jwt:4.3.0'
 
+    //Mqtt
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.1'
+    implementation "org.springframework.integration:spring-integration-mqtt:6.0.4"
+
+
+
 
 
 

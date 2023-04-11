@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("api/gasSensorLog")
-public class GasSensorLogsController {
+public class GasSensorLogsController extends BaseController {
 
     private final GasSensorLogService gasSensorLogService;
     private final ModelMapper modelMapper;
