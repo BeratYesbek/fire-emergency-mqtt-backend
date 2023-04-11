@@ -19,7 +19,7 @@ public class FirebaseConfiguration {
                 .builder()
                 .setCredentials(googleCredentials)
                 .build();
-        FirebaseApp app = FirebaseApp.initializeApp(firebaseOptions, "mqtt-8480e");
+        FirebaseApp app = FirebaseApp.initializeApp(firebaseOptions, "Mqtt");
         return FirebaseMessaging.getInstance(app);
     }
 

@@ -22,7 +22,7 @@ public class MqttUrgentListener extends AbstractMqttListener {
     protected void listener() {
         try {
             mqttClient.subscribe(URGENT, ((topic, message) -> {
-                    // TODO business logic
+                // TODO business logic
             }));
         } catch (MqttException e) {
             throw new RuntimeException(e);
