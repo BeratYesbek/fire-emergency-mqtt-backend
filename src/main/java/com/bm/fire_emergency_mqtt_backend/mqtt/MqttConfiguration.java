@@ -26,6 +26,4 @@ public class MqttConfiguration {
         publisher.connect(options);
         return publisher;
     }
-
-
 }

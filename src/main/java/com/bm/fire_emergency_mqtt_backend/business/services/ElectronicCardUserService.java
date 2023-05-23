@@ -12,6 +12,7 @@ public interface ElectronicCardUserService {
 
     DataResult<DbElectronicCardUser> update(DbElectronicCardUser dbElectronicCardUser, int id);
 
+    DataResult<DbElectronicCardUser> findByCardId(int id);
     Result delete(int id);
 
     DataResult<Page<DbElectronicCardUser>> findByUserId(Pageable pageable, int userId);

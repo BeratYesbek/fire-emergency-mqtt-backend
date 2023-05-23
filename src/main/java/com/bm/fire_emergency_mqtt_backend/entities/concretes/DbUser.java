@@ -30,10 +30,10 @@ public class DbUser extends DbEntity {
     @Column(name = COL_PASSWORD, nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "dbUser", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "dbUser")
     private List<DbClientInfo> dbClientInfoList;
 
-    @OneToMany(mappedBy = "dbUser", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "dbUser")
     private List<DbElectronicCardUser> dbElectronicCardUserList;
 
     @Override

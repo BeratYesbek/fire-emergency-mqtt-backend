@@ -11,4 +11,6 @@ import org.springframework.data.repository.query.Param;
 public interface ElectronicCardUserDao extends JpaRepository<DbElectronicCardUser, Integer> {
 
     Page<DbElectronicCardUser> findAllByDbUserId(int userId, Pageable pageable);
+
+    DbElectronicCardUser findByDbElectronicCardId(int id);
 }

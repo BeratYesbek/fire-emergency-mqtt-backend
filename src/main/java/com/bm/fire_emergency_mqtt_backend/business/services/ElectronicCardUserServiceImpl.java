@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.messages.ElectronicCardMessages.GET_ELECTRONIC_CARD;
 import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.messages.ElectronicCardUserMessage.*;
 
 @Service
@@ -32,6 +33,11 @@ public class ElectronicCardUserServiceImpl implements ElectronicCardUserService 
     @Override
     public DataResult<DbElectronicCardUser> update(DbElectronicCardUser dbElectronicCardUser, int id) {
         return null;
+    }
+
+    @Override
+    public DataResult<DbElectronicCardUser> findByCardId(int id) {
+        return new SuccessDataResult<>(electronicCardUserDao.findByDbElectronicCardId(id), GET_ELECTRONIC_CARD);
     }
 
     @Override

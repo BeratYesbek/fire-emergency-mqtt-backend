@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.util.UUID;
 
 import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.HibernateTableConstants.ELECTRONIC_CARD_TABLE;
-import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.HibernateElectronicCardColumnContants.*;
+import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.HibernateElectronicCardColumnConstants.*;
 
 @Getter
 @Setter
@@ -27,6 +27,9 @@ public class DbElectronicCard extends DbEntity {
 
     @Column(name = COL_QR_CODE, nullable = false)
     private String qrCode;
+
+    @OneToOne(mappedBy = "dbElectronicCard", fetch = FetchType.LAZY)
+    private DbElectronicCardUser dbElectronicCardUser;
 
     @PrePersist
     private void assignUIID() {

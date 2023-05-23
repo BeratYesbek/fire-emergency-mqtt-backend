@@ -39,12 +39,15 @@ public class DbClientInfo extends DbEntity {
     @Column(name = COl_OPERATING_SYSTEM, nullable = false)
     private String operatingSystem;
 
+    @Column(name = COL_TOKEN, nullable = false)
+    private String token;
+
     @GeneratedValue(generator = "uuid2", strategy = GenerationType.AUTO)
     @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = COl_PHONE_UUID, columnDefinition = "VARCHAR(255)", unique = true, nullable = false)
     private String phoneUUID;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = COL_USER_ID, referencedColumnName = COL_ID, nullable = false)
     private DbUser dbUser;
 
@@ -56,13 +59,15 @@ public class DbClientInfo extends DbEntity {
     @Override
     public String toString() {
         return "DbClientInfo{" +
-                "id=" + id +
-                ", latitude=" + latitude +
+                "latitude=" + latitude +
                 ", longitude=" + longitude +
                 ", phoneName='" + phoneName + '\'' +
                 ", phoneBrand='" + phoneBrand + '\'' +
                 ", operatingSystem='" + operatingSystem + '\'' +
+                ", token='" + token + '\'' +
                 ", phoneUUID='" + phoneUUID + '\'' +
+                ", dbUser=" + dbUser +
+                ", id=" + id +
                 ", version=" + version +
                 ", deleted=" + deleted +
                 ", createdAt=" + createdAt +

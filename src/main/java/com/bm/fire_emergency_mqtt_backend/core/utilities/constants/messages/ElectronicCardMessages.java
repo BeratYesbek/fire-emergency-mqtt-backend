@@ -9,4 +9,6 @@ public class ElectronicCardMessages {
     public static final String CREATE_ELECTRONIC_CARD = "Electronic card has been created";
     public static final String UPDATE_ELECTRONIC_CARD = "Electronic card has been updated";
     public static final String DELETE_ELECTRONIC_CARD = "Electronic card has been deleted";
+    public static final String GET_ELECTRONIC_CARD = "Electronic card has been found";
+
 }

@@ -33,6 +33,10 @@ public class DbElectronicCardUser extends DbEntity {
     @JoinColumn(name = COL_USER_ID, referencedColumnName = COL_ID)
     private DbUser dbUser;
 
+    @OneToOne
+    @JoinColumn(name = COL_CARD_ID, referencedColumnName = COL_ID)
+    private DbElectronicCard dbElectronicCard;
+
     @PrePersist
     private void assignUIID() {
         uuid = UUID.randomUUID().toString();

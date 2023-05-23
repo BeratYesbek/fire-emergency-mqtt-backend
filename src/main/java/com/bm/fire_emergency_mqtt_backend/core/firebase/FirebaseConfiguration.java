@@ -5,24 +5,29 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.messaging.FirebaseMessaging;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+@Configuration
 public class FirebaseConfiguration {
     @Bean
-    FirebaseMessaging firebaseMessaging() throws IOException {
-        GoogleCredentials googleCredentials = GoogleCredentials
-                .fromStream(new ClassPathResource("mqtt-8480e-firebase-adminsdk-of1qi-4c88a688ff").getInputStream());
-        FirebaseOptions firebaseOptions = FirebaseOptions
-                .builder()
-                .setCredentials(googleCredentials)
-                .build();
-        FirebaseApp app = FirebaseApp.initializeApp(firebaseOptions, "Mqtt");
-        return FirebaseMessaging.getInstance(app);
+    FirebaseMessaging firebaseMessaging() {
+        try {
+            FileInputStream fileInputStream = new FileInputStream("C:\\Users\\berat\\IdeaProjects\\fire-emergency-mqtt-backend\\google_services.json");
+            FirebaseOptions options = new FirebaseOptions.Builder()
+                    .setCredentials(GoogleCredentials.fromStream(fileInputStream))
+                    .build();
+            FirebaseApp app = FirebaseApp.initializeApp(options);
+            fileInputStream.close();
+            return FirebaseMessaging.getInstance(app);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
     }
-
-
-
 }

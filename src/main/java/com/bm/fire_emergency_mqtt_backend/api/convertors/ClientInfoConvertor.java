@@ -4,6 +4,7 @@ import com.bm.fire_emergency_mqtt_backend.api.dto.PageDto;
 import com.bm.fire_emergency_mqtt_backend.api.dto.clientInfo.ClientInfoCreateDto;
 import com.bm.fire_emergency_mqtt_backend.api.dto.clientInfo.ClientInfoReadDto;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbClientInfo;
+import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbUser;
 import org.springframework.data.domain.Page;
 
 import java.util.ArrayList;
@@ -15,23 +16,25 @@ public final class ClientInfoConvertor {
 
     }
 
-    public static DbClientInfo  convertCreateRequestToDbClientInfo(ClientInfoCreateDto clientInfoDto) {
+    public static DbClientInfo convertCreateRequestToDbClientInfo(ClientInfoCreateDto clientInfoDto) {
         DbClientInfo dbClientInfo = DbClientInfo.builder()
                 .latitude(clientInfoDto.getLatitude())
                 .longitude(clientInfoDto.getLongitude())
                 .phoneBrand(clientInfoDto.getPhoneBrand())
+                .token(clientInfoDto.getToken())
                 .phoneName(clientInfoDto.getPhoneName())
                 .operatingSystem(clientInfoDto.getOperatingSystem())
-                .dbUser(clientInfoDto.getDbUser())
+                .dbUser(
+                        DbUser.builder().build()
+                )
                 .build();
+        dbClientInfo.getDbUser().setId(clientInfoDto.getUserId());
         return dbClientInfo;
     }
 
     public static PageDto<ClientInfoReadDto> convertPageDbClientInfoToPageClientInfoReadDto(Page<DbClientInfo> clientInfo) {
         List<ClientInfoReadDto> clientInfoReadDtoList = new ArrayList<>();
-        clientInfo.getContent().forEach(item -> {
-            clientInfoReadDtoList.add(convertDbClientInfoToClientInfoReadDto(item));
-        });
+        clientInfo.getContent().forEach(item -> clientInfoReadDtoList.add(convertDbClientInfoToClientInfoReadDto(item)));
 
         return PageDto.<ClientInfoReadDto>builder().page(clientInfo.getNumber())
                 .size(clientInfo.getSize())

@@ -32,6 +32,14 @@ public class ElectronicCardServiceImpl implements ElectronicCardService {
     }
 
     @Override
+    public DataResult<DbElectronicCard> findByCardUUID(String cardUUID) {
+        return new SuccessDataResult<>(
+                electronicCardDao.findByElectronicCardUUID(cardUUID),
+                ElectronicCardMessages.GET_ELECTRONIC_CARD
+        );
+    }
+
+    @Override
     public Result delete(int id) {
         electronicCardDao.deleteById(id);
         return new SuccessResult(ElectronicCardMessages.DELETE_ELECTRONIC_CARD);

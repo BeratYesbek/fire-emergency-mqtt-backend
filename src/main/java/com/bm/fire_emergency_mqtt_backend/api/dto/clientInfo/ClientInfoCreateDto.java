@@ -17,18 +17,20 @@ public class ClientInfoCreateDto {
     private double longitude;
 
     @JsonProperty("phoneName")
-    private String phoneName;
+    private String phoneName = "sadasd";
 
     @JsonProperty("phoneBrand")
-    private String phoneBrand;
+    private String phoneBrand = "sadasd";
 
     @JsonProperty("operatingSystem")
     private String operatingSystem;
 
-    @JsonProperty("phoneUUID")
-    private String phoneUUID;
+    @JsonProperty("token")
+    private String token;
 
-    //TODO --> dbUser has to remove in the future
-    @JsonProperty("dbUser")
-    private DbUser dbUser;
+    @JsonProperty("phoneUUID")
+    private String phoneUUID = "sadasd";
+
+    @JsonProperty("userId")
+    private int userId;
 }

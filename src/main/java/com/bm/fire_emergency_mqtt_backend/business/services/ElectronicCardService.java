@@ -9,5 +9,7 @@ public interface ElectronicCardService {
 
     DataResult<DbElectronicCard> update(DbElectronicCard entity, int id);
 
+    DataResult<DbElectronicCard> findByCardUUID(String cardUUID);
+
     Result delete(int id);
 }
