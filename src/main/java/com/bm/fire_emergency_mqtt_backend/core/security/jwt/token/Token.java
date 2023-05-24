@@ -1,14 +1,16 @@
 package com.bm.fire_emergency_mqtt_backend.core.security.jwt.token;
 
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbUser;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 
 
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Token {
 
     private String accessToken;

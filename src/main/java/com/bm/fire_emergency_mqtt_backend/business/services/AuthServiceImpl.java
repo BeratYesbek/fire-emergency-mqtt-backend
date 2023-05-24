@@ -89,4 +89,16 @@ public class AuthServiceImpl implements AuthService {
         return new SuccessDataResult<>(token, USER_CREATED);
     }
 
+    @Override
+    public DataResult<Token> isLoggedIn(String token) {
+        DataResult<Token> dataResult = jwtHelper.validateToken(token);
+        if (dataResult.isSuccess()) {
+            DbUser dbUser = userService.findByUsername(dataResult.getData().getUser().getUsername()).getData();
+            dataResult.getData().setUser(dbUser);
+            return dataResult;
+        }
+        return dataResult;
+    }
+
+
 }

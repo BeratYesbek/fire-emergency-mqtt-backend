@@ -7,6 +7,6 @@ import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.DataResult;
 
 public interface AuthService {
     DataResult<Token> login(LoginDto loginDto);
-
     DataResult<Token> register(RegisterDto registerDto);
+    DataResult<Token> isLoggedIn(String token);
 }

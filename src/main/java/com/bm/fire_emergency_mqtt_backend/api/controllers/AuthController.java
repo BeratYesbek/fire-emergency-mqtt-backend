@@ -10,10 +10,10 @@ import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.ErrorDataResul
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessDataResult;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.xml.crypto.Data;
 
 import static com.bm.fire_emergency_mqtt_backend.api.convertors.AuthConvertor.*;
 
@@ -22,9 +22,12 @@ import static com.bm.fire_emergency_mqtt_backend.api.convertors.AuthConvertor.*;
 public class AuthController extends BaseController {
 
     private final AuthService authService;
+    private final HttpServletRequest request;
 
-    public AuthController(AuthService authService) {
+
+    public AuthController(AuthService authService, HttpServletRequest request) {
         this.authService = authService;
+        this.request = request;
     }
 
     @PostMapping("login")
@@ -56,6 +59,24 @@ public class AuthController extends BaseController {
         return new ResponseEntity<>(
                 new ErrorDataResult<>(null, result.getMessage()),
                 HttpStatus.BAD_REQUEST);
+    }
+
+    @GetMapping("isLoggedIn")
+    public ResponseEntity<DataResult<TokenDto>> isLoggedIn() {
+        String token = request.getHeader("Authorization");
+        if (token == null)
+            return new ResponseEntity<>(new ErrorDataResult<>(null, "Token is null"), HttpStatus.UNAUTHORIZED);
+        DataResult<Token> result = authService.isLoggedIn(token);
+        if (result.isSuccess())
+            return new ResponseEntity<>(
+                    new SuccessDataResult<>(
+                            convertTokenToTokenDto(result.getData()), result.getMessage()),
+                    HttpStatus.OK
+            );
+
+        return new ResponseEntity<>(
+                new ErrorDataResult<>(null, result.getMessage()),
+                HttpStatus.UNAUTHORIZED);
     }
 
 }
