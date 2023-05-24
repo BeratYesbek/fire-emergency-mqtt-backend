@@ -1,4 +1,4 @@
-package com.bm.fire_emergency_mqtt_backend.core.security.roles;
+package com.bm.fire_emergency_mqtt_backend.core.concerns.security.roles;
 
 public final class SecurityRole {
     private SecurityRole() {

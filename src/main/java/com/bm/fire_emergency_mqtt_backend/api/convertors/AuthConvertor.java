@@ -2,7 +2,7 @@ package com.bm.fire_emergency_mqtt_backend.api.convertors;
 
 import com.bm.fire_emergency_mqtt_backend.api.dto.auth.TokenDto;
 import com.bm.fire_emergency_mqtt_backend.api.dto.user.UserReadDto;
-import com.bm.fire_emergency_mqtt_backend.core.security.jwt.token.Token;
+import com.bm.fire_emergency_mqtt_backend.core.concerns.security.jwt.token.Token;
 
 public final class AuthConvertor {
 

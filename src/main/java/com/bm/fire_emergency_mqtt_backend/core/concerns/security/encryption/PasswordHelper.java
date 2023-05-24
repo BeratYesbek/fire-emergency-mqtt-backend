@@ -1,4 +1,4 @@
-package com.bm.fire_emergency_mqtt_backend.core.security.encryption;
+package com.bm.fire_emergency_mqtt_backend.core.concerns.security.encryption;
 
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

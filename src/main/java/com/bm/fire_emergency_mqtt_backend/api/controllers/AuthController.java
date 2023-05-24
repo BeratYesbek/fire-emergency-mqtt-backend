@@ -4,7 +4,7 @@ import com.bm.fire_emergency_mqtt_backend.api.dto.auth.LoginDto;
 import com.bm.fire_emergency_mqtt_backend.api.dto.auth.RegisterDto;
 import com.bm.fire_emergency_mqtt_backend.api.dto.auth.TokenDto;
 import com.bm.fire_emergency_mqtt_backend.business.services.AuthService;
-import com.bm.fire_emergency_mqtt_backend.core.security.jwt.token.Token;
+import com.bm.fire_emergency_mqtt_backend.core.concerns.security.jwt.token.Token;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.DataResult;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.ErrorDataResult;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessDataResult;
@@ -13,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.xml.crypto.Data;
 
 import static com.bm.fire_emergency_mqtt_backend.api.convertors.AuthConvertor.*;
 

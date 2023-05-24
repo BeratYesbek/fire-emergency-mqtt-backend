@@ -1,7 +1,7 @@
-package com.bm.fire_emergency_mqtt_backend.core.security.jwt;
+package com.bm.fire_emergency_mqtt_backend.core.concerns.security.jwt;
 
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.bm.fire_emergency_mqtt_backend.core.security.jwt.token.Token;
+import com.bm.fire_emergency_mqtt_backend.core.concerns.security.jwt.token.Token;
 import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.DataResult;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbUser;
 

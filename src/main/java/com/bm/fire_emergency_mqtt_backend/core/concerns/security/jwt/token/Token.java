@@ -1,4 +1,4 @@
-package com.bm.fire_emergency_mqtt_backend.core.security.jwt.token;
+package com.bm.fire_emergency_mqtt_backend.core.concerns.security.jwt.token;
 
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbUser;
 import lombok.*;

@@ -1,7 +1,8 @@
 package com.bm.fire_emergency_mqtt_backend.core.annotations;
 
 
-import com.bm.fire_emergency_mqtt_backend.core.validation.Validator;
+
+import com.bm.fire_emergency_mqtt_backend.core.concerns.validations.Validator;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

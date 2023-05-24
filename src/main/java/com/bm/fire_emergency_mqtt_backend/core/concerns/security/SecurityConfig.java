@@ -1,4 +1,4 @@
-package com.bm.fire_emergency_mqtt_backend.core.security;
+package com.bm.fire_emergency_mqtt_backend.core.concerns.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
