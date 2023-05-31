@@ -6,6 +6,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
+import java.util.List;
 import java.util.UUID;
 
 import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.HibernateTableConstants.ELECTRONIC_CARD_TABLE;
@@ -30,6 +31,9 @@ public class DbElectronicCard extends DbEntity {
 
     @OneToOne(mappedBy = "dbElectronicCard", fetch = FetchType.LAZY)
     private DbElectronicCardUser dbElectronicCardUser;
+
+    @OneToMany(mappedBy = "dbElectronicCard", fetch = FetchType.LAZY)
+    private List<DbNotification> dbNotificationList;
 
     @PrePersist
     private void assignUIID() {

@@ -8,6 +8,7 @@ import com.bm.fire_emergency_mqtt_backend.dao.abstracts.UserRoleDao;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbRole;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbUserRole;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.List;
 import static com.bm.fire_emergency_mqtt_backend.core.utilities.constants.messages.UserRoleMessage.*;
 
 @Service
-@Transactional
+@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 public class UserRoleServiceImpl implements UserRoleService {
 
     private final UserRoleDao userRoleDao;

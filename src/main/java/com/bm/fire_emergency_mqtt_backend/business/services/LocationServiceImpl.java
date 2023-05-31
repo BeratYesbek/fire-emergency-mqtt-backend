@@ -8,10 +8,11 @@ import com.bm.fire_emergency_mqtt_backend.core.utilities.reponses.SuccessResult;
 import com.bm.fire_emergency_mqtt_backend.dao.abstracts.LocationDao;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbLocation;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional
+@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 public class LocationServiceImpl implements LocationService {
 
     private final LocationDao locationDao;

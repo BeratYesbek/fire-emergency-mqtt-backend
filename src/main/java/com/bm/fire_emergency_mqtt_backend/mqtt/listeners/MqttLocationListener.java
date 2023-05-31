@@ -35,15 +35,17 @@ public class MqttLocationListener extends AbstractMqttListener {
             mqttClient.subscribe(LOCATION, ((topic, message) -> {
                 JSONObject jsonObject = new JSONObject(new String(message.getPayload()));
                 DbLocation dbLocation = DbLocation.builder()
-                        .latitude(Double.parseDouble(jsonObject.get("latitude").toString()))
-                        .longitude(Double.parseDouble(jsonObject.get("longitude").toString()))
-                        .electronicCardId(Integer.parseInt(jsonObject.get("id").toString()))
+                        .latitude(Double.parseDouble(jsonObject.get("latitude").toString().replaceAll("[\\[\\]\"]", "")))
+                        .longitude(Double.parseDouble(jsonObject.get("longitude").toString().replaceAll("[\\[\\]\"]", "")))
+                        .electronicCardId(Integer.parseInt(jsonObject.get("id").toString().replaceAll("[\\[\\]\"]", "")))
                         .build();
                 locationService.create(dbLocation);
-                logger.info("--> Mqtt server send message for " + topic + "topic: " + message);
+                System.out.println("----------> Location listener is working");
+
             }));
+            //stringValue = stringValue; // remove square brackets and quotation marks
         } catch (MqttException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getCause().getMessage());
         }
         super.listener();
     }

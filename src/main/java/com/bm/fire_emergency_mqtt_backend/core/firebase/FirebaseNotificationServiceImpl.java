@@ -1,6 +1,8 @@
 package com.bm.fire_emergency_mqtt_backend.core.firebase;
 
+import com.bm.fire_emergency_mqtt_backend.business.services.NotificationService;
 import com.bm.fire_emergency_mqtt_backend.core.notification.NotificationMessage;
+import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbNotification;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingException;
 import com.google.firebase.messaging.Message;
@@ -12,7 +14,7 @@ public class FirebaseNotificationServiceImpl implements FirebaseNotificationServ
 
 
     @Override
-    public void send(NotificationMessage message, String token) throws FirebaseMessagingException {
+    public void send(NotificationMessage message, String token)  {
         Notification notification = Notification
                 .builder()
                 .setTitle(message.getTitle())
@@ -25,6 +27,10 @@ public class FirebaseNotificationServiceImpl implements FirebaseNotificationServ
                 .setNotification(notification)
                 .build();
 
-        FirebaseMessaging.getInstance().send(notify);
+        try {
+            FirebaseMessaging.getInstance().send(notify);
+        } catch (FirebaseMessagingException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

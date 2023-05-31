@@ -9,10 +9,11 @@ import com.bm.fire_emergency_mqtt_backend.dao.abstracts.ElectronicCardDao;
 import com.bm.fire_emergency_mqtt_backend.entities.concretes.DbElectronicCard;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional
+@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 public class ElectronicCardServiceImpl implements ElectronicCardService {
 
     private final ElectronicCardDao electronicCardDao;

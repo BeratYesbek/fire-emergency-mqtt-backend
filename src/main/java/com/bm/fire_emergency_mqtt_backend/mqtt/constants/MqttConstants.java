@@ -8,4 +8,6 @@ public final class MqttConstants {
 
     public final static String LOCATION = "location";
     public final static String URGENT = "urgent";
+    public final static String LOG = "log";
+
 }
