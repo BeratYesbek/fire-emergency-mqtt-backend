@@ -53,7 +53,7 @@ public class MqttUrgentListener extends AbstractMqttListener {
                 System.out.println(electronicCard.toString());
                 if (electronicCard != null) {
                     String token = getToken(electronicCard);
-                    sendNotification(electronicCard.getDbElectronicCardUser().getName(), token, urgentLevel);
+                    sendNotification(electronicCard.getDbElectronicCardUser().getName(), electronicCard.getElectronicCardUUID(), token, urgentLevel);
                     addNotification(electronicCard.getDbElectronicCardUser().getDbUser(),
                             electronicCard,
                             electronicCard.getDbElectronicCardUser().getName(),
@@ -75,8 +75,8 @@ public class MqttUrgentListener extends AbstractMqttListener {
     }
 
     private void addNotification(DbUser dbUser, DbElectronicCard dbElectronicCard, String cardName, String urgentLevel) {
-        String notificationMessage = String.format("Urgent!! from your this card: %s, Potential dangerous level is %s ",
-                cardName, urgentLevel);
+        String notificationMessage = String.format("Urgent!! from your this card: %s, Potential dangerous level is %s cardId: %s",
+                cardName, urgentLevel, dbElectronicCard.getElectronicCardUUID());
         String title = "Urgent!!! " + urgentLevel;
         notifyService.add(
                 DbNotification.builder()
@@ -88,9 +88,9 @@ public class MqttUrgentListener extends AbstractMqttListener {
         );
     }
 
-    private void sendNotification(String cardName, String token, String urgentLevel) throws FirebaseMessagingException {
-        String notificationMessage = String.format("Urgent!! from your this card: %s, Potential dangerous level is %s ",
-                cardName, urgentLevel);
+    private void sendNotification(String cardName, String cardId, String token, String urgentLevel) throws FirebaseMessagingException {
+        String notificationMessage = String.format("Urgent!! from your this card: %s, Potential dangerous level is %s cardId: %s",
+                cardName, urgentLevel, cardId);
         notificationService.send(
                 FirebaseMessage.builder().message(notificationMessage)
                         .title("Urgent!!! " + urgentLevel).build(),

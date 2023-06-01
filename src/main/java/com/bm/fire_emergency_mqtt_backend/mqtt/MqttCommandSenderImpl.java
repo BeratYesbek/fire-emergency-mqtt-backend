@@ -6,14 +6,16 @@ import org.springframework.stereotype.Service;
 
 import java.net.ConnectException;
 
-import static org.springframework.integration.mqtt.support.MqttHeaders.TOPIC;
+import static com.bm.fire_emergency_mqtt_backend.mqtt.constants.MqttConstants.COMMAND;
+
 
 @Service
-public class MqttMessageSenderImpl implements MqttMessageSender<Object> {
-
+public class MqttCommandSenderImpl implements MqttMessageSender<Command> {
     private final IMqttClient mqttClient;
+    private Command command;
+    private String topic;
 
-    public MqttMessageSenderImpl(IMqttClient mqttClient) {
+    public MqttCommandSenderImpl(IMqttClient mqttClient) {
         this.mqttClient = mqttClient;
     }
 
@@ -25,22 +27,23 @@ public class MqttMessageSenderImpl implements MqttMessageSender<Object> {
         MqttMessage msg = readMessage();
         msg.setQos(0);
         msg.setRetained(true);
-        mqttClient.publish(TOPIC,msg);
+        String fullTopic = String.format("%s: %s", COMMAND, topic);
+        mqttClient.publish(fullTopic, msg);
         return null;
     }
 
     private MqttMessage readMessage() {
-        byte[] payload = "Hello, Mqtt Client".getBytes();
+        byte[] payload = command.name().getBytes();
         return new MqttMessage(payload);
     }
 
     @Override
-    public void setValue(Object value) {
-
+    public void setValue(Command value) {
+        command = value;
     }
 
     @Override
     public void setTopic(String value) {
-
+        topic = value;
     }
 }
