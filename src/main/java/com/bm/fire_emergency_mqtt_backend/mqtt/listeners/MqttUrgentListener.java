@@ -28,7 +28,6 @@ public class MqttUrgentListener extends AbstractMqttListener {
     private final ElectronicCardService electronicCardService;
     private final FirebaseNotificationService notificationService;
     private final ClientInfoService clientInfoService;
-
     private final NotificationService notifyService;
 
 
@@ -58,7 +57,6 @@ public class MqttUrgentListener extends AbstractMqttListener {
                             electronicCard,
                             electronicCard.getDbElectronicCardUser().getName(),
                             urgentLevel
-
                     );
                 }
             }));
